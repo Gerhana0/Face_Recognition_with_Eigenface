@@ -101,13 +101,4 @@ def recogniseUnknownFace(pathDataset, pathTestImage, meanDatasetVector, projecti
     else:
         dummyImage = os.path.join(os.path.dirname(__file__), 'dummy', 'makasih.jpg')
         return (dummyImage, 0, minDistance)
-
-def run(datasetPath, testImagePath, threshold=500000):
-    imageMatrix = vectortoMatrix(datasetPath)
-    meanVector = mean(imageMatrix)
-    diffMatrix = different(meanVector, imageMatrix)
-    covMatrix = covariance(diffMatrix)
-    eigenVectors = eig(covMatrix)
-    projectedMatrix = projection(imageMatrix, eigenVectors)
-    datasetWights = weightDataset(projectedMatrix, diffMatrix)
-    return recogniseUnknownFace(datasetPath, testImagePath, meanVector, projectedMatrix, datasetWights, threshold)
+        
