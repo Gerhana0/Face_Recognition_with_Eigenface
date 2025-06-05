@@ -6,7 +6,7 @@ def run(datasetPath, testImagePath, threshold = 500000):
     
     meanVector = eigenface.mean(imageMatrix)
 
-    diffMatrix = eigenface.selisih(meanVector, imageMatrix)
+    diffMatrix = eigenface.different(meanVector, imageMatrix)
 
     covMatrix = eigenface.covariance(diffMatrix)
 
